@@ -1,0 +1,15 @@
+.feedbackContainer {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  text-align: center;
+
+  gap: 8px;
+  text-align: left;
+}
+.FeedbackItem {
+  font-size: 18px;
+  font-weight: 600;
+  margin: auto;
+}

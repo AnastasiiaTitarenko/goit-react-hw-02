@@ -1,0 +1,23 @@
+.OptionsContainer {
+  margin-top: 20px;
+  text-align: center;
+}
+.OptionsButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.OptionsButton:hover {
+  background-color: #0056b3;
+}
+.OptionsResetButton {
+  background-color: grey;
+  color: #fff;
+}
+.OptionsResetButton:hover {
+  background-color: rgb(255, 51, 0);
+}

@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+.title {
+  font-size: 32px;
+  color: rgb(14, 176, 184);
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+}
+.positiveFeedback {
+  color: green;
+  font-weight: 500;
+}
