@@ -10,6 +10,7 @@ const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
       {totalFeedback > 0 && (
         <button className={css.OptionsResetButton} onClick={resetFeedback}>Reset</button>
       )}
+      <p>Total Feedback: {totalFeedback}</p>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import css from './App.module.css'
 import Feedback from '../Feedback/Feedback'
 import Options from '../Options/Options'
 import Notification from '../Notification/Notification';
+import Description from '../ Description/Description';
 
 function App() {
 
@@ -42,16 +43,16 @@ function App() {
 
   return (
     <>
-      <h1 className={css.title}>Sip Happens Café</h1>
-      <p>Please leave your feedback about our service by selecting one of the options below.</p>
+      <Description/>
       <Feedback feedback={feedback} />
             <Options
               updateFeedback= {updateFeedback}
               totalFeedback= {totalFeedback}
               resetFeedback= { resetFeedback} />
-      {totalFeedback === 0 && <Notification message="No feedback yet." />}
+      
       <p>Total Feedback: {totalFeedback}</p>
       <p className={css.positiveFeedback}>Positive Feedback: {isNaN(positiveFeedback) ? 0: positiveFeedback} %</p>
+      {totalFeedback === 0 && <Notification message="No feedback yet." />}
     </>
   )
 }
