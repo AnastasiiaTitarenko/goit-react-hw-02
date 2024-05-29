@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       <Description />
-      
+
       <Feedback
         feedback={feedback}
         totalFeedback={totalFeedback}
@@ -56,7 +56,7 @@ function App() {
       />
       
       <p>Total Feedback: {totalFeedback}</p>
-      <p>Positive Feedback: {isNaN(positiveFeedback) ? 0 : positiveFeedback}%</p>
+      <p>Positive Feedback: {Number.isNaN(positiveFeedback) ? 0 : positiveFeedback}%</p>
       {totalFeedback === 0 && <Notification message="No feedback yet." />}
     </>
   );
