@@ -30,7 +30,7 @@ function App() {
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedback = Math.round(( feedback.good / totalFeedback) * 100);
+  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
   const resetFeedback = () => {
     setFeedback({
@@ -40,21 +40,26 @@ function App() {
     })
   };
 
-
   return (
     <>
-      <Description/>
-      <Feedback feedback={feedback} />
-            <Options
-              updateFeedback= {updateFeedback}
-              totalFeedback= {totalFeedback}
-              resetFeedback= { resetFeedback} />
+      <Description />
+      
+      <Feedback
+        feedback={feedback}
+        totalFeedback={totalFeedback}
+        positivePercentage={positiveFeedback}
+      />
+      <Options
+        updateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+        resetFeedback={resetFeedback}
+      />
       
       <p>Total Feedback: {totalFeedback}</p>
-      <p className={css.positiveFeedback}>Positive Feedback: {isNaN(positiveFeedback) ? 0: positiveFeedback} %</p>
+      <p>Positive Feedback: {isNaN(positiveFeedback) ? 0 : positiveFeedback}%</p>
       {totalFeedback === 0 && <Notification message="No feedback yet." />}
     </>
-  )
+  );
 }
 
 export default App
