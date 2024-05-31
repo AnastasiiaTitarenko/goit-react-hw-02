@@ -30,7 +30,7 @@ function App() {
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
+  const positiveFeedback = totalFeedback === 0 ? 0 : Math.round((feedback.good / totalFeedback) * 100);
 
   const resetFeedback = () => {
     setFeedback({
@@ -43,8 +43,8 @@ function App() {
   return (
     <>
       <Description />
-
-      <Feedback
+      
+        <Feedback
         feedback={feedback}
         totalFeedback={totalFeedback}
         positivePercentage={positiveFeedback}
@@ -56,7 +56,7 @@ function App() {
       />
       
       <p>Total Feedback: {totalFeedback}</p>
-      <p>Positive Feedback: {Number.isNaN(positiveFeedback) ? 0 : positiveFeedback}%</p>
+      <p>Positive Feedback: {positiveFeedback}%</p>
       {totalFeedback === 0 && <Notification message="No feedback yet." />}
     </>
   );
