@@ -45,7 +45,12 @@ function App() {
   return (
     <>
       <Description />
-      {totalFeedback > 0 && (
+      <Options
+            updateFeedback={updateFeedback}
+            totalFeedback={totalFeedback}
+            resetFeedback={resetFeedback}
+      />
+      {totalFeedback > 0 ? (
         <>
           <Feedback
             feedback={feedback}
@@ -53,17 +58,9 @@ function App() {
             positivePercentage={positiveFeedback}
           />
         </>
-      )}
-      {totalFeedback === 0 && (
+      ) : (
       <Notification message="No feedback yet." />
       )}
-       <Options
-            updateFeedback={updateFeedback}
-            totalFeedback={totalFeedback}
-            resetFeedback={resetFeedback}
-          />
-      <p>Total Feedback: {totalFeedback}</p>
-      <p>Positive Feedback: {positiveFeedback}%</p>
     </>
   );
 }
