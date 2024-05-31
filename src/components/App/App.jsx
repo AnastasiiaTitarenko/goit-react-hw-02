@@ -17,9 +17,11 @@ function App() {
         bad: 0
       };
   });
-
+  const [showFeedback, setShowFeedback] = useState(false);
+  
   useEffect(() => {
     localStorage.setItem('feedback', JSON.stringify(feedback));
+    setShowFeedback (true);
   }, [feedback]);
 
   const updateFeedback = (feedbackType) => {
@@ -37,27 +39,31 @@ function App() {
       good: 0,
       neutral: 0,
       bad: 0
-    })
+    });
   };
 
   return (
     <>
       <Description />
-      
-        <Feedback
-        feedback={feedback}
-        totalFeedback={totalFeedback}
-        positivePercentage={positiveFeedback}
-      />
-      <Options
-        updateFeedback={updateFeedback}
-        totalFeedback={totalFeedback}
-        resetFeedback={resetFeedback}
-      />
-      
+      {totalFeedback > 0 && (
+        <>
+          <Feedback
+            feedback={feedback}
+            totalFeedback={totalFeedback}
+            positivePercentage={positiveFeedback}
+          />
+        </>
+      )}
+      {totalFeedback === 0 && (
+      <Notification message="No feedback yet." />
+      )}
+       <Options
+            updateFeedback={updateFeedback}
+            totalFeedback={totalFeedback}
+            resetFeedback={resetFeedback}
+          />
       <p>Total Feedback: {totalFeedback}</p>
       <p>Positive Feedback: {positiveFeedback}%</p>
-      {totalFeedback === 0 && <Notification message="No feedback yet." />}
     </>
   );
 }
