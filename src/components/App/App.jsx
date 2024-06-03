@@ -17,11 +17,9 @@ function App() {
         bad: 0
       };
   });
-  const [showFeedback, setShowFeedback] = useState(false);
   
   useEffect(() => {
     localStorage.setItem('feedback', JSON.stringify(feedback));
-    setShowFeedback (true);
   }, [feedback]);
 
   const updateFeedback = (feedbackType) => {
